@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MergeAndConvertFilesPortIn.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">merge-and-convert-files</a> &gt; <a href="index.source.html" class="el_package">br.com.wagner.application.port.in</a> &gt; <span class="el_source">MergeAndConvertFilesPortIn.java</span></div><h1>MergeAndConvertFilesPortIn.java</h1><pre class="source lang-java linenums">package br.com.wagner.application.port.in;
+
+import br.com.wagner.application.port.dto.MergeAndConvertFilesRequestDTO;
+import br.com.wagner.application.port.out.MergeAndConvertFilesPortOut;
+import br.com.wagner.application.port.usecases.MergeAndConvertFilesUseCase;
+import br.com.wagner.domain.beanFactory.UseCaseBeanFactory;
+import br.com.wagner.domain.bo.MergeAndConvertFilesRequestBO;
+
+import br.com.wagner.domain.util.MergeAndConvertFilesUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
+
+@Component
+public class MergeAndConvertFilesPortIn implements MergeAndConvertFilesUseCase {
+
+    public MergeAndConvertFilesPortIn(MergeAndConvertFilesPortOut mergeAndConvertFilesPortOut,
+<span class="fc" id="L18">                                    UseCaseBeanFactory useCaseBeanFactory){</span>
+<span class="fc" id="L19">        this.mergeAndConvertFilesPortOut = mergeAndConvertFilesPortOut;</span>
+<span class="fc" id="L20">        this.useCaseBeanFactory = useCaseBeanFactory;</span>
+<span class="fc" id="L21">    }</span>
+
+<span class="fc" id="L23">    private static Logger LOG = LoggerFactory.getLogger(MergeAndConvertFilesPortIn.class);</span>
+
+    private MergeAndConvertFilesPortOut mergeAndConvertFilesPortOut;
+    private UseCaseBeanFactory useCaseBeanFactory;
+
+    @Override
+    public void mergeAndConvertFilesController(MergeAndConvertFilesRequestDTO mergeAndConvertFilesRequestDTO) {
+
+<span class="fc" id="L31">        LOG.info(&quot;STARTING THE CLASS: MergeAndConvertFilesPortIn METHOD: mergeAndConvertFilesController&quot;);</span>
+
+<span class="fc" id="L33">        boolean valid = false;</span>
+
+<span class="fc" id="L35">        MergeAndConvertFilesRequestBO mergeAndConvertFilesRequestBO = mergeAndConvertFilesRequestDTO.toBO();</span>
+
+<span class="fc bfc" id="L37" title="All 2 branches covered.">        if(mergeAndConvertFilesRequestDTO.isMerge()){</span>
+<span class="fc" id="L38">            valid = MergeAndConvertFilesUtil.validateFilesTypeAndSetSupportedExtensionToMerge(mergeAndConvertFilesRequestBO);</span>
+        } else {
+<span class="fc" id="L40">            valid = MergeAndConvertFilesUtil.validateFilesTypeAndSetSupportedExtensionToConvert(mergeAndConvertFilesRequestBO);</span>
+        }
+
+<span class="pc bpc" id="L43" title="1 of 2 branches missed.">        if(valid) {</span>
+<span class="fc" id="L44">            useCaseBeanFactory.getMergeAndConvertFilesDomainUseCase(mergeAndConvertFilesRequestBO).mergeOrConvertFiles(mergeAndConvertFilesRequestBO);</span>
+<span class="fc" id="L45">            mergeAndConvertFilesPortOut.printResult(mergeAndConvertFilesRequestDTO.fromBO(mergeAndConvertFilesRequestBO));</span>
+        }
+
+<span class="fc" id="L48">        LOG.info(&quot;FINISHING THE CLASS: MergeAndConvertFilesPortIn METHOD: mergeAndConvertFilesController&quot;);</span>
+
+<span class="fc" id="L50">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

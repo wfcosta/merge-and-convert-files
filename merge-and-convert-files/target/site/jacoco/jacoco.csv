@@ -1,0 +1,12 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+merge-and-convert-files,br.com.wagner.application.port.dto,MergeAndConvertFilesRequestDTO,9,95,0,0,3,20,3,14,3,14
+merge-and-convert-files,br.com.wagner.domain.usecases.impl,MergeAndConvertFilesDomainUseCaseTXTToPDFImpl,5,90,0,2,2,23,0,4,0,3
+merge-and-convert-files,br.com.wagner.domain.usecases.impl,MergeAndConvertFilesDomainUseCaseTXTImpl,5,72,0,4,2,21,0,5,0,3
+merge-and-convert-files,br.com.wagner.domain.usecases.impl,MergeAndConvertFilesDomainUseCasePDFImpl,5,46,0,0,2,14,0,3,0,3
+merge-and-convert-files,br.com.wagner.domain.util,MergeAndConvertFilesUtil,40,128,6,12,13,22,9,6,3,3
+merge-and-convert-files,br.com.wagner.framework.adapter.out,ConsoleAdapterOut,3,30,1,3,1,9,1,4,0,3
+merge-and-convert-files,br.com.wagner.application.port.in,MergeAndConvertFilesPortIn,0,49,1,3,0,16,1,4,0,3
+merge-and-convert-files,br.com.wagner.domain.beanFactory,UseCaseBeanFactory,2,36,3,7,1,9,3,4,0,2
+merge-and-convert-files,br.com.wagner.domain.bo,MergeAndConvertFilesRequestBO,4,55,0,0,0,10,1,16,1,16
+merge-and-convert-files,br.com.wagner.domain.bo,SupportedExtensionsToMerge,0,15,0,0,0,2,0,1,0,1
+merge-and-convert-files,br.com.wagner.domain.bo,SupportedExtensionsToConvert,0,18,0,0,0,5,0,2,0,2

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MergeAndConvertFilesUtil.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">merge-and-convert-files</a> &gt; <a href="index.source.html" class="el_package">br.com.wagner.domain.util</a> &gt; <span class="el_source">MergeAndConvertFilesUtil.java</span></div><h1>MergeAndConvertFilesUtil.java</h1><pre class="source lang-java linenums">package br.com.wagner.domain.util;
+
+import br.com.wagner.domain.bo.MergeAndConvertFilesRequestBO;
+import br.com.wagner.domain.bo.SupportedExtensionsToConvert;
+import br.com.wagner.domain.bo.SupportedExtensionsToMerge;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+<span class="nc" id="L11">public class MergeAndConvertFilesUtil {</span>
+
+    public static void printLogo(){
+
+<span class="nc" id="L15">        String logo = &quot;&quot;&quot;   </span>
+                ===================================================================================================
+                =                                                                                                 =
+                =                                    MERGE AND CONVERT FILES                                      =
+                =                                                                                                 =
+                ===================================================================================================
+                &quot;&quot;&quot;;
+
+<span class="nc" id="L23">        System.out.println(logo);</span>
+<span class="nc" id="L24">    }</span>
+
+    public static String readLine() throws IOException {
+<span class="nc" id="L27">        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));</span>
+<span class="nc" id="L28">        String line = br.readLine();</span>
+<span class="nc" id="L29">        return line;</span>
+    }
+
+    public static void println(String phrase){
+<span class="fc" id="L33">        System.out.println(phrase);</span>
+<span class="fc" id="L34">    }</span>
+
+    public static boolean validateFilesTypeAndSetSupportedExtensionToMerge(MergeAndConvertFilesRequestBO mergeAndConvertFilesRequestBO) {
+<span class="fc" id="L37">        String extensionsFile1 = mergeAndConvertFilesRequestBO.getFile1().split(&quot;\\.&quot;)[1];</span>
+<span class="fc" id="L38">        String extensionsFile2 = mergeAndConvertFilesRequestBO.getFile2().split(&quot;.\\.&quot;)[1];</span>
+<span class="pc bpc" id="L39" title="1 of 2 branches missed.">        if(extensionsFile1.equals(extensionsFile2)){</span>
+<span class="pc bpc" id="L40" title="1 of 2 branches missed.">            for(SupportedExtensionsToMerge s : SupportedExtensionsToMerge.values()){</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">                if(s.toString().equals(extensionsFile1.toUpperCase())){</span>
+<span class="fc" id="L42">                    mergeAndConvertFilesRequestBO.setSupportedExtensionsToMerge(s);</span>
+<span class="fc" id="L43">                    return Boolean.TRUE;</span>
+                }
+            }
+        }
+<span class="nc" id="L47">        mergeAndConvertFilesRequestBO.setErro(1);</span>
+<span class="nc" id="L48">        mergeAndConvertFilesRequestBO.setMessage(&quot;Files not equals or type not supported.&quot;);</span>
+<span class="nc" id="L49">        return Boolean.FALSE;</span>
+    }
+
+    public static boolean validateFilesTypeAndSetSupportedExtensionToConvert(MergeAndConvertFilesRequestBO mergeAndConvertFilesRequestBO) {
+<span class="fc" id="L53">        boolean file1OK = false;</span>
+<span class="fc" id="L54">        boolean file2OK = false;</span>
+<span class="fc" id="L55">        String extensionsFile1 = mergeAndConvertFilesRequestBO.getFile1().split(&quot;\\.&quot;)[1];</span>
+<span class="fc" id="L56">        String extensionsFile2 = mergeAndConvertFilesRequestBO.getFileConverted().split(&quot;.\\.&quot;)[1];</span>
+<span class="fc bfc" id="L57" title="All 2 branches covered.">        for(SupportedExtensionsToConvert s : SupportedExtensionsToConvert.values()){</span>
+<span class="pc bpc" id="L58" title="1 of 2 branches missed.">            if(s.toString().equals(extensionsFile1.toUpperCase())){</span>
+<span class="fc" id="L59">                file1OK = Boolean.TRUE;</span>
+            }
+        }
+<span class="fc bfc" id="L62" title="All 2 branches covered.">        for(SupportedExtensionsToConvert s : SupportedExtensionsToConvert.values()){</span>
+<span class="pc bpc" id="L63" title="1 of 2 branches missed.">            if(s.label.equals(extensionsFile2.toUpperCase())){</span>
+<span class="fc" id="L64">                mergeAndConvertFilesRequestBO.setSupportedExtensionsToConvert(s);</span>
+<span class="fc" id="L65">                file2OK = Boolean.TRUE;</span>
+            }
+        }
+<span class="pc bpc" id="L68" title="2 of 4 branches missed.">        if(file1OK &amp;&amp; file2OK){</span>
+<span class="fc" id="L69">            return Boolean.TRUE;</span>
+        }
+
+<span class="nc" id="L72">        mergeAndConvertFilesRequestBO.setErro(1);</span>
+<span class="nc" id="L73">        mergeAndConvertFilesRequestBO.setMessage(&quot;Files selected for convertion not supported, try again.&quot;);</span>
+<span class="nc" id="L74">        return Boolean.FALSE;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

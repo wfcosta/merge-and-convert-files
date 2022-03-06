@@ -1,0 +1,16 @@
+D:\OneDrive\2022\entrevista_kleber\merge-and-convert-files\src\main\java\br\com\wagner\domain\bo\MergeAndConvertFilesRequestBO.java
+D:\OneDrive\2022\entrevista_kleber\merge-and-convert-files\src\main\java\br\com\wagner\application\port\out\MergeAndConvertFilesPortOut.java
+D:\OneDrive\2022\entrevista_kleber\merge-and-convert-files\src\main\java\br\com\wagner\framework\adapter\in\console\ConsoleAdapterIn.java
+D:\OneDrive\2022\entrevista_kleber\merge-and-convert-files\src\main\java\br\com\wagner\application\port\dto\MergeAndConvertFilesRequestDTO.java
+D:\OneDrive\2022\entrevista_kleber\merge-and-convert-files\src\main\java\br\com\wagner\application\port\in\MergeAndConvertFilesPortIn.java
+D:\OneDrive\2022\entrevista_kleber\merge-and-convert-files\src\main\java\br\com\wagner\domain\usecases\MergeAndConvertFilesDomainUseCase.java
+D:\OneDrive\2022\entrevista_kleber\merge-and-convert-files\src\main\java\br\com\wagner\application\port\usecases\MergeAndConvertFilesUseCase.java
+D:\OneDrive\2022\entrevista_kleber\merge-and-convert-files\src\main\java\br\com\wagner\domain\bo\SupportedExtensionsToConvert.java
+D:\OneDrive\2022\entrevista_kleber\merge-and-convert-files\src\main\java\br\com\wagner\domain\usecases\impl\MergeAndConvertFilesDomainUseCasePDFImpl.java
+D:\OneDrive\2022\entrevista_kleber\merge-and-convert-files\src\main\java\br\com\wagner\domain\beanFactory\UseCaseBeanFactory.java
+D:\OneDrive\2022\entrevista_kleber\merge-and-convert-files\src\main\java\br\com\wagner\bootstrap\SpringBootConsoleApplication.java
+D:\OneDrive\2022\entrevista_kleber\merge-and-convert-files\src\main\java\br\com\wagner\framework\adapter\out\ConsoleAdapterOut.java
+D:\OneDrive\2022\entrevista_kleber\merge-and-convert-files\src\main\java\br\com\wagner\domain\util\MergeAndConvertFilesUtil.java
+D:\OneDrive\2022\entrevista_kleber\merge-and-convert-files\src\main\java\br\com\wagner\domain\usecases\impl\MergeAndConvertFilesDomainUseCaseTXTToPDFImpl.java
+D:\OneDrive\2022\entrevista_kleber\merge-and-convert-files\src\main\java\br\com\wagner\domain\bo\SupportedExtensionsToMerge.java
+D:\OneDrive\2022\entrevista_kleber\merge-and-convert-files\src\main\java\br\com\wagner\domain\usecases\impl\MergeAndConvertFilesDomainUseCaseTXTImpl.java

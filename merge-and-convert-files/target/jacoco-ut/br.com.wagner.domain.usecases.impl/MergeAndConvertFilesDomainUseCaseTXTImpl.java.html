@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MergeAndConvertFilesDomainUseCaseTXTImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">merge-and-convert-files</a> &gt; <a href="index.source.html" class="el_package">br.com.wagner.domain.usecases.impl</a> &gt; <span class="el_source">MergeAndConvertFilesDomainUseCaseTXTImpl.java</span></div><h1>MergeAndConvertFilesDomainUseCaseTXTImpl.java</h1><pre class="source lang-java linenums">package br.com.wagner.domain.usecases.impl;
+
+import br.com.wagner.domain.bo.MergeAndConvertFilesRequestBO;
+import br.com.wagner.domain.bo.SupportedExtensionsToConvert;
+import br.com.wagner.domain.usecases.MergeAndConvertFilesDomainUseCase;
+import br.com.wagner.domain.util.MergeAndConvertFilesUtil;
+import org.apache.pdfbox.multipdf.PDFMergerUtility;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.PrintWriter;
+
+@Component
+<span class="fc" id="L18">public class MergeAndConvertFilesDomainUseCaseTXTImpl implements MergeAndConvertFilesDomainUseCase {</span>
+
+<span class="fc" id="L20">    private static Logger LOG = LoggerFactory.getLogger(MergeAndConvertFilesDomainUseCaseTXTImpl.class);</span>
+
+    @Override
+    public void mergeOrConvertFiles(MergeAndConvertFilesRequestBO mergeAndConvertFilesRequestBO) {
+<span class="fc" id="L24">        LOG.info(&quot;STARTING THE CLASS: MergeAndConvertFilesDomainUseCaseTXTImpl METHOD: mergeFiles&quot;);</span>
+        try{
+
+<span class="fc" id="L27">            PrintWriter pw = new PrintWriter(mergeAndConvertFilesRequestBO.getFileMerged());</span>
+<span class="fc" id="L28">            BufferedReader br = new BufferedReader(new FileReader(mergeAndConvertFilesRequestBO.getFile1()));</span>
+
+<span class="fc" id="L30">            String line = br.readLine();</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">            while (line != null) {</span>
+<span class="fc" id="L32">                pw.println(line);</span>
+<span class="fc" id="L33">                line = br.readLine();</span>
+            }
+
+<span class="fc" id="L36">            br = new BufferedReader(new FileReader(mergeAndConvertFilesRequestBO.getFile2()));</span>
+<span class="fc" id="L37">            line = br.readLine();</span>
+
+<span class="fc bfc" id="L39" title="All 2 branches covered.">            while (line != null) {</span>
+<span class="fc" id="L40">                pw.println(line);</span>
+<span class="fc" id="L41">                line = br.readLine();</span>
+            }
+
+<span class="fc" id="L44">            pw.flush();</span>
+<span class="fc" id="L45">            br.close();</span>
+<span class="fc" id="L46">            pw.close();</span>
+
+<span class="fc" id="L48">            mergeAndConvertFilesRequestBO.setErro(0);</span>
+
+
+<span class="nc" id="L51">        }catch (Exception e){</span>
+<span class="nc" id="L52">            LOG.error(&quot;ERROR CLASS: MergeAndConvertFilesDomainUseCaseTXTImpl METHOD: mergeFiles&quot;, e);</span>
+<span class="fc" id="L53">        }</span>
+<span class="fc" id="L54">        LOG.info(&quot;FINISHING THE CLASS: MergeAndConvertFilesDomainUseCaseTXTImpl METHOD: mergeFiles&quot;);</span>
+<span class="fc" id="L55">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

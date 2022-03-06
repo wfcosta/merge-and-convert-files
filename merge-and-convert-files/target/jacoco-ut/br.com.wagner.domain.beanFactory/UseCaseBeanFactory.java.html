@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UseCaseBeanFactory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">merge-and-convert-files</a> &gt; <a href="index.source.html" class="el_package">br.com.wagner.domain.beanFactory</a> &gt; <span class="el_source">UseCaseBeanFactory.java</span></div><h1>UseCaseBeanFactory.java</h1><pre class="source lang-java linenums">package br.com.wagner.domain.beanFactory;
+
+import br.com.wagner.domain.bo.MergeAndConvertFilesRequestBO;
+import br.com.wagner.domain.bo.SupportedExtensionsToConvert;
+import br.com.wagner.domain.bo.SupportedExtensionsToMerge;
+import br.com.wagner.domain.usecases.MergeAndConvertFilesDomainUseCase;
+import br.com.wagner.domain.usecases.impl.MergeAndConvertFilesDomainUseCasePDFImpl;
+import br.com.wagner.domain.usecases.impl.MergeAndConvertFilesDomainUseCaseTXTToPDFImpl;
+import br.com.wagner.domain.usecases.impl.MergeAndConvertFilesDomainUseCaseTXTImpl;
+import org.springframework.stereotype.Component;
+
+@Component
+<span class="fc" id="L13">public class UseCaseBeanFactory {</span>
+
+    public MergeAndConvertFilesDomainUseCase getMergeAndConvertFilesDomainUseCase(MergeAndConvertFilesRequestBO mergeAndConvertFilesRequestBO) {
+<span class="fc bfc" id="L16" title="All 2 branches covered.">        if(mergeAndConvertFilesRequestBO.getSupportedExtensionsToMerge() != null){</span>
+<span class="fc bfc" id="L17" title="All 2 branches covered.">            if (mergeAndConvertFilesRequestBO.getSupportedExtensionsToMerge().equals(SupportedExtensionsToMerge.PDF)) {</span>
+<span class="fc" id="L18">                return new MergeAndConvertFilesDomainUseCasePDFImpl();</span>
+<span class="pc bpc" id="L19" title="1 of 2 branches missed.">            } else if(mergeAndConvertFilesRequestBO.getSupportedExtensionsToMerge().equals(SupportedExtensionsToMerge.TXT)){</span>
+<span class="fc" id="L20">                return new MergeAndConvertFilesDomainUseCaseTXTImpl();</span>
+            }
+<span class="pc bpc" id="L22" title="1 of 2 branches missed.">        } else if(mergeAndConvertFilesRequestBO.getSupportedExtensionsToConvert() != null){</span>
+<span class="pc bpc" id="L23" title="1 of 2 branches missed.">            if(mergeAndConvertFilesRequestBO.getSupportedExtensionsToConvert().equals(SupportedExtensionsToConvert.TXT)){</span>
+<span class="fc" id="L24">                return new MergeAndConvertFilesDomainUseCaseTXTToPDFImpl();</span>
+            }
+        }
+
+<span class="nc" id="L28">        return null;</span>
+    }
+}
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

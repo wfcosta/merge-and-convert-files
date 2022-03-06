@@ -1,0 +1,16 @@
+br\com\wagner\domain\bo\MergeAndConvertFilesRequestBO.class
+br\com\wagner\domain\usecases\impl\MergeAndConvertFilesDomainUseCaseTXTImpl.class
+br\com\wagner\domain\beanFactory\UseCaseBeanFactory.class
+br\com\wagner\framework\adapter\out\ConsoleAdapterOut.class
+br\com\wagner\domain\usecases\MergeAndConvertFilesDomainUseCase.class
+br\com\wagner\application\port\in\MergeAndConvertFilesPortIn.class
+br\com\wagner\application\port\dto\MergeAndConvertFilesRequestDTO.class
+br\com\wagner\bootstrap\SpringBootConsoleApplication.class
+br\com\wagner\domain\util\MergeAndConvertFilesUtil.class
+br\com\wagner\domain\bo\SupportedExtensionsToConvert.class
+br\com\wagner\domain\bo\SupportedExtensionsToMerge.class
+br\com\wagner\framework\adapter\in\console\ConsoleAdapterIn.class
+br\com\wagner\application\port\out\MergeAndConvertFilesPortOut.class
+br\com\wagner\domain\usecases\impl\MergeAndConvertFilesDomainUseCaseTXTToPDFImpl.class
+br\com\wagner\application\port\usecases\MergeAndConvertFilesUseCase.class
+br\com\wagner\domain\usecases\impl\MergeAndConvertFilesDomainUseCasePDFImpl.class
